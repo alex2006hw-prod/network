@@ -6,7 +6,7 @@
   "dependencies": {
     "connections": "^1.4.2",
     "debug": "^4.1.1",
-    "discovery-channel": "^5.5.1",
+    "discovery-channel": "file:../discovery-channel",
     "length-prefixed-message": "^3.0.3",
     "pump": "^3.0.0",
     "to-buffer": "^1.0.1"
