@@ -29,8 +29,9 @@ var M = 10
 
   recomendation: return undefined
 */
+var Buffer = require('safe-buffer').Buffer
 
-var buffer = new Buffer(8)
+var buffer = new Buffer.alloc(8)
 var _buffer = buffer.slice(0, 4)
 var varint = require('./')
 var l = N

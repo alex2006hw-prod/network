@@ -1,3 +1,5 @@
+const Buffer = require('safe-buffer').Buffer
+
 module.exports = create(0)
 
 function create (idLength) {
@@ -19,7 +21,7 @@ function create (idLength) {
   }
 
   function encode (peers, buf, offset) {
-    if (!buf) buf = Buffer(encodingLength(peers))
+    if (!buf) buf = Buffer.alloc(encodingLength(peers))
     if (!offset) offset = 0
 
     for (var i = 0; i < peers.length; i++) {
@@ -59,7 +61,7 @@ function create (idLength) {
 
       if (port === 0) throw new RangeError('Port should be > 0 and < 65536')
 
-      peers[i] = id ? {id: id, host: host, port: port} : {host: host, port: port}
+      peers[i] = id ? { id: id, host: host, port: port } : { host: host, port: port }
       offset += 2
     }
 

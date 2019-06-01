@@ -20,5 +20,8 @@
   "license": "MIT",
   "devDependencies": {
     "tape": "file:../tape"
+  },
+  "dependencies": {
+    "safe-buffer": "file:../safe-buffer"
   }
 }

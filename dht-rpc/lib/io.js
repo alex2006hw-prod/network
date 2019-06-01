@@ -29,6 +29,11 @@ class IO {
     this._rotateInterval = setInterval(this._onrotate.bind(this), 300000)
 
     socket.on('message', this._onmessage.bind(this))
+    if(!id) return
+    // console.info('1.dht-rpc io constructor : ', 
+    //   '\n node id   : ' + id.toString('hex'), 
+    //   '\n bucket id : ' +ctx.bucket.localNodeId.toString('hex')
+    // )
   }
 
   _token (peer, i) {

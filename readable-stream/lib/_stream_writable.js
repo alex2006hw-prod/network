@@ -67,7 +67,7 @@ var Stream = require('./internal/streams/stream');
 /*</replacement>*/
 
 
-var Buffer = require('buffer').Buffer;
+var Buffer = require('safe-buffer').Buffer;
 
 var OurUint8Array = global.Uint8Array || function () {};
 

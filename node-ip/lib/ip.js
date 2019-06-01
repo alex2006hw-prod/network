@@ -1,7 +1,8 @@
 'use strict';
 
 var ip = exports;
-var Buffer = require('buffer').Buffer;
+var Buffer = require('safe-buffer').Buffer;
+
 var os = require('os');
 
 ip.toBuffer = function(ip, buff, offset) {
@@ -10,7 +11,7 @@ ip.toBuffer = function(ip, buff, offset) {
   var result;
 
   if (this.isV4Format(ip)) {
-    result = buff || new Buffer(offset + 4);
+    result = buff || new Buffer.alloc(offset + 4);
     ip.split(/\./g).map(function(byte) {
       result[offset++] = parseInt(byte, 10) & 0xff;
     });
@@ -45,7 +46,7 @@ ip.toBuffer = function(ip, buff, offset) {
       sections.splice.apply(sections, argv);
     }
 
-    result = buff || new Buffer(offset + 16);
+    result = buff || new Buffer.alloc(offset + 16);
     for (i = 0; i < sections.length; i++) {
       var word = parseInt(sections[i], 16);
       result[offset++] = (word >> 8) & 0xff;
@@ -110,7 +111,7 @@ ip.fromPrefixLen = function(prefixlen, family) {
   if (family === 'ipv6') {
     len = 16;
   }
-  var buff = new Buffer(len);
+  var buff = new Buffer.alloc(len);
 
   for (var i = 0, n = buff.length; i < n; ++i) {
     var bits = 8;
@@ -129,7 +130,7 @@ ip.mask = function(addr, mask) {
   addr = ip.toBuffer(addr);
   mask = ip.toBuffer(mask);
 
-  var result = new Buffer(Math.max(addr.length, mask.length));
+  var result = new Buffer.alloc(Math.max(addr.length, mask.length));
 
   var i = 0;
   // Same protocol - do bitwise and
