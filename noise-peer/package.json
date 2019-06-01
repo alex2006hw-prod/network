@@ -1,0 +1,36 @@
+{
+  "name": "noise-peer",
+  "version": "1.0.1",
+  "description": "Simple end-to-end encrypted, secure channels using Noise Protocol Framework and libsodium secretstream",
+  "main": "index.js",
+  "devDependencies": {
+    "c8": "^3.2.0",
+    "choppa": "^1.0.2",
+    "duplexify": "^3.6.0",
+    "pumpify": "^1.5.1",
+    "tape": "^4.8.0",
+    "utp-native": "^2.1.0"
+  },
+  "scripts": {
+    "test": "tape tests/**.js",
+    "coverage": "c8 npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emilbayes/noise-peer.git"
+  },
+  "keywords": [],
+  "author": "Emil Bay <github@tixz.dk>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emilbayes/noise-peer/issues"
+  },
+  "homepage": "https://github.com/emilbayes/noise-peer#readme",
+  "dependencies": {
+    "nanoassert": "file:../nanoassert",
+    "readable-stream": "file:../readable-stream",
+    "secretstream-stream": "file:../secretstream-stream",
+    "simple-handshake": "file:../simple-handshake",
+    "sodium-universal": "file:../sodium-universal"
+  }
+}

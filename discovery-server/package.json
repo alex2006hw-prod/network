@@ -4,14 +4,14 @@
   "description": "A tcp/utp server that auto announces itself using discovery-channel",
   "main": "index.js",
   "scripts": {
-    "test": "standard"
+    "test": "standard --fix"
   },
   "dependencies": {
-    "discovery-channel": "^5.4.6",
-    "utp-native": "^1.6.0"
+    "discovery-channel": "file:../discovery-channel",
+    "utp-native": "file:../utp-native"
   },
   "devDependencies": {
-    "standard": "^10.0.3"
+    "standard": "file:../standard"
   },
   "repository": {
     "type": "git",

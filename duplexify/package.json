@@ -1,0 +1,39 @@
+{
+  "name": "duplexify",
+  "version": "4.0.0",
+  "description": "Turn a writable and readable stream into a streams2 duplex stream with support for async initialization and streams1/streams2 input",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mafintosh/duplexify"
+  },
+  "keywords": [
+    "duplex",
+    "streams2",
+    "streams",
+    "stream",
+    "writable",
+    "readable",
+    "async"
+  ],
+  "author": "Mathias Buus",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mafintosh/duplexify/issues"
+  },
+  "homepage": "https://github.com/mafintosh/duplexify",
+  "dependencies": {
+    "end-of-stream": "file:../end-of-stream",
+    "inherits": "file:../inherits",
+    "readable-stream": "file:../readable-stream",
+    "stream-shift": "file:../stream-shift"
+  },
+  "devDependencies": {
+    "concat-stream": "file:../concat-stream",
+    "tape": "file:../tape",
+    "through2": "file:../through2"
+  }
+}

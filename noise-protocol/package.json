@@ -1,0 +1,32 @@
+{
+  "name": "noise-protocol",
+  "version": "1.0.0",
+  "description": "Javascript implementation of the Noise Protocol Framework based on libsodium",
+  "main": "index.js",
+  "devDependencies": {
+    "c8": "3.2.0",
+    "standard": "file:../standard",
+    "tape": "file:../tape"
+  },
+  "scripts": {
+    "test": "tape test/**/*",
+    "coverage": "c8 npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emilbayes/noise-protocol.git"
+  },
+  "keywords": [],
+  "author": "Emil Bay <github@tixz.dk>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emilbayes/noise-protocol/issues"
+  },
+  "homepage": "https://github.com/emilbayes/noise-protocol#readme",
+  "dependencies": {
+    "clone": "file:../clone",
+    "hmac-blake2b": "file:../hmac-blake2b",
+    "nanoassert": "file:../nanoassert",
+    "sodium-native": "file:../sodium-native"
+  }
+}

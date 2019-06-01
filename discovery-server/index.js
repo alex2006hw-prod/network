@@ -1,9 +1,22 @@
 var dc = require('discovery-channel')
-var net = require('net')
+// var net = require('net')
 var utp = require('utp-native')
 var events = require('events')
 var inherits = require('util').inherits
 
+var network = require('noise-network')
+var Buffer = require('safe-buffer').Buffer
+
+//////////
+  const vault = network.keygen()
+  const vaultKey = {
+    address: vault.publicKey.toString('hex'),
+    key: vault.secretKey.toString('hex')
+  }
+  // const publicKey = new Buffer.from(hexKey.address, 'hex')
+  // const secretKey = new Buffer.from(hexKey.key, 'hex')
+  // const keyPair = {publicKey, secretKey}
+//////////
 module.exports = Server
 
 function Server (opts, onconn) {
@@ -28,12 +41,15 @@ function Server (opts, onconn) {
   this._actuallyListening = false
 
   this.listening = false
-  this.tcp = net.createServer(onconnection)
+  // this.tcp = net.createServer(onconnection)
+  this.tcp = network.createServer(onconnection)
   this.utp = opts.socket ? opts.socket.on('connection', onconnection) : null
   this.channel = dc(opts)
 
   function onconnection (socket) {
-    self.emit('connection', socket, {type: this === self.tcp ? 'tcp' : 'utp'})
+    socket.setTimeout(3000);
+    socket.pipe(socket)
+    self.emit('connection', socket, { type: this === self.tcp ? 'tcp' : 'utp' })
   }
 }
 

@@ -1,0 +1,30 @@
+{
+  "name": "hmac-blake2b",
+  "version": "0.2.0",
+  "description": "HMAC backed by BLAKE2b",
+  "main": "index.js",
+  "devDependencies": {
+    "tape": "^4.8.0"
+  },
+  "scripts": {
+    "test": "tape test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emilbayes/hmac-blake2b.git"
+  },
+  "keywords": [
+    "hmac",
+    "blake2b"
+  ],
+  "author": "Emil Bay <github@tixz.dk>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emilbayes/hmac-blake2b/issues"
+  },
+  "homepage": "https://github.com/emilbayes/hmac-blake2b#readme",
+  "dependencies": {
+    "nanoassert": "file:../nanoassert",
+    "sodium-universal": "file:../sodium-universal"
+  }
+}

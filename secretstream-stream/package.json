@@ -1,0 +1,25 @@
+{
+  "name": "secretstream-stream",
+  "version": "1.2.1",
+  "description": "Abstract encoding API of `libsodium` `crypto_secretstream`",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emilbayes/secretstream-stream.git"
+  },
+  "keywords": [],
+  "author": "Emil Bay <github@tixz.dk>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emilbayes/secretstream-stream/issues"
+  },
+  "homepage": "https://github.com/emilbayes/secretstream-stream#readme",
+  "dependencies": {
+    "nanoassert": "file:../nanoassert",
+    "sodium-native": "file:../sodium-native"
+  }
+}
