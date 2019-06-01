@@ -10,7 +10,7 @@ class Swarm extends EventEmitter {
     super()
 
     if (!opts) opts = {}
-    console.info('1.Swarm options: ', opts)
+    console.info('1.network Swarm options: ', opts)
     opts.socket = this.socket = opts.socket || utp()
 
     this.discovery = discovery(opts)
@@ -28,7 +28,7 @@ class Swarm extends EventEmitter {
 
   join (key, opts) {
     if (!opts) opts = {}
-    console.info('1.Swarm join options: ', key, opts)
+    console.info('1.network Swarm join options: ', key, opts)
     this._bind()
     this.leave(key)
 
@@ -49,7 +49,7 @@ class Swarm extends EventEmitter {
   leave (key) {
     const hex = key.toString('hex')
     const prev = this._topics.get(hex)
-    console.info('1.Swarm leave: ', key)
+    console.info('1.network Swarm leave: ', key)
     if (prev) prev.destroy()
   }
 
@@ -62,7 +62,7 @@ class Swarm extends EventEmitter {
     const timeout = setTimeout(ontimeout, 10000)
     const tcp = net.connect(peer.port, peer.host)
 
-    console.info('1.Swarm connect: ', peer)
+    console.info('1.network Swarm connect: ', peer)
 
     tcp.on('connect', onconnect)
     tcp.on('error', onerror)
@@ -152,11 +152,11 @@ class Queue {
     this.seen.set(id, peer)
     if (peer.local) this.local.push(peer)
     else this.remote.push(peer)
-    console.info('1.Swarm push peer: ', peer)
+    console.info('1.network Swarm push peer: ', peer)
   }
 
   pop (preferRemote) {
-    console.info('1.Swarm pop peer: ', preferRemote)
+    console.info('1.network Swarm pop peer: ', preferRemote)
     if (preferRemote) return this.remote.pop()
     return this.local.pop() || this.remote.pop()
   }
