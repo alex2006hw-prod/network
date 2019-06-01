@@ -1,0 +1,27 @@
+{
+  "name": "@hyperswarm/network",
+  "version": "0.0.4",
+  "description": "The Hyperswarm network stack",
+  "main": "index.js",
+  "dependencies": {
+    "@hyperswarm/discovery": "file:../discovery",
+    "utp-native": "file:../utp-native"
+  },
+  "scripts": {
+    "test": "standard"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hyperswarm/network.git"
+  },
+  "author": "Mathias Buus (@mafintosh)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hyperswarm/network/issues"
+  },
+  "homepage": "https://github.com/hyperswarm/network",
+  "devDependencies": {
+    "standard": "file:../standard",
+    "tape": "file:../tape"
+  }
+}

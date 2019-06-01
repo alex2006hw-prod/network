@@ -1,0 +1,23 @@
+{
+  "name": "xsalsa20",
+  "version": "1.0.2",
+  "description": "XSalsa20 implemented in Javascript and WebAssembly",
+  "main": "index.js",
+  "dependencies": {},
+  "scripts": {
+    "test": "tape test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mafintosh/xsalsa20.git"
+  },
+  "author": "Mathias Buus (@mafintosh)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mafintosh/xsalsa20/issues"
+  },
+  "homepage": "https://github.com/mafintosh/xsalsa20",
+  "devDependencies": {
+    "tape": "file:../tape"
+  }
+}

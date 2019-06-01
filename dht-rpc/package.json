@@ -1,0 +1,35 @@
+{
+  "name": "dht-rpc",
+  "version": "4.1.2",
+  "description": "Make RPC calls over a Kademlia based DHT",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard --fix && tape test.js",
+    "protobuf": "protocol-buffers schema.proto -o lib/messages.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mafintosh/dht-rpc.git"
+  },
+  "author": "Mathias Buus (@mafintosh)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mafintosh/dht-rpc/issues"
+  },
+  "homepage": "https://github.com/mafintosh/dht-rpc#readme",
+  "devDependencies": {
+    "protocol-buffers": "file:../protocol-buffers",
+    "standard": "file:../standard",
+    "tape": "file:../tape"
+  },
+  "dependencies": {
+    "codecs": "file:../codecs",
+    "ipv4-peers": "file:../ipv4-peers",
+    "k-bucket": "file:../k-bucket",
+    "protocol-buffers-encodings": "file:../protocol-buffers-encodings",
+    "sodium-universal": "file:../sodium-universal",
+    "stream-collector": "file:../stream-collector",
+    "time-ordered-set": "file:../time-ordered-set",
+    "xor-distance": "file:../xor-distance"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "@hyperswarm/dht",
+  "version": "0.0.1",
+  "description": "The DHT backing the HyperSwarm stack",
+  "main": "index.js",
+  "bin": {
+    "hyperswarm-dht": "./bin.js"
+  },
+  "scripts": {
+    "test": "standard",
+    "protobuf": "protocol-buffers schema.proto -o messages.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mafintosh/dht.git"
+  },
+  "author": "Mathias Buus (@mafintosh)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hyperswarm/dht/issues"
+  },
+  "homepage": "https://github.com/hyperswarm/dht",
+  "dependencies": {
+    "dht-rpc": "file:../dht-rpc",
+    "ipv4-peers": "file:../ipv4-peers",
+    "protocol-buffers-encodings": "file:../protocol-buffers-encodings",
+    "record-cache": "file:../record-cache"
+  },
+  "devDependencies": {
+    "protocol-buffers": "file:../protocol-buffers",
+    "standard": "file:../standard"
+  }
+}
