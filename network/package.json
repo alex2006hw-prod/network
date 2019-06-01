@@ -1,7 +1,7 @@
 {
-  "name": "@hyperswarm/network",
-  "version": "0.0.4",
-  "description": "The Hyperswarm network stack",
+  "name": "network",
+  "version": "0.0.1",
+  "description": "The network stack",
   "main": "index.js",
   "dependencies": {
     "@hyperswarm/discovery": "file:../discovery",
