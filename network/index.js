@@ -28,7 +28,7 @@ class Swarm extends EventEmitter {
 
   join (key, opts) {
     if (!opts) opts = {}
-    console.info('1.network Swarm join options: ', key, opts)
+    console.info('1.network Swarm join options: ', key.toString('hex'), opts)
     this._bind()
     this.leave(key)
 
@@ -49,7 +49,7 @@ class Swarm extends EventEmitter {
   leave (key) {
     const hex = key.toString('hex')
     const prev = this._topics.get(hex)
-    console.info('1.network Swarm leave: ', key)
+    console.info('1.network Swarm leave: ', key.toString('hex'))
     if (prev) prev.destroy()
   }
 
@@ -62,7 +62,7 @@ class Swarm extends EventEmitter {
     const timeout = setTimeout(ontimeout, 10000)
     const tcp = net.connect(peer.port, peer.host)
 
-    console.info('1.network Swarm connect: ', peer)
+    console.info('1.network Swarm connect: ', peer.referrer.id.toString('hex'))
 
     tcp.on('connect', onconnect)
     tcp.on('error', onerror)
@@ -115,12 +115,14 @@ class Swarm extends EventEmitter {
     this._bound = true
     this.socket.listen(0)
     this.server.listen(this.socket.address().port)
+    console.info('1.network Swarm _bind port : ',this.socket.address().port)
   }
 
   _onpeer (peer) {
     this.emit('peer', peer)
     this.queue.push(peer)
     this._connectNext() // TODO: don't be this eager
+    console.info('1.network Swarm _onpeer : ',peer.referrer.id.toString('hex'))
   }
 
   _connectNext () {
@@ -132,6 +134,7 @@ class Swarm extends EventEmitter {
       self.emit('connection', socket, info)
       self._connectNext() // TODO: don't be this eager
     })
+    console.info('1.network Swarm _connectNext : ',peer.referrer.id.toString('hex'))
   }
 }
 
@@ -152,11 +155,11 @@ class Queue {
     this.seen.set(id, peer)
     if (peer.local) this.local.push(peer)
     else this.remote.push(peer)
-    console.info('1.network Swarm push peer: ', peer)
+    console.info('1.network Swarm push peer: ', peer.referrer.id.toString('hex'))
   }
 
   pop (preferRemote) {
-    console.info('1.network Swarm pop peer: ', preferRemote)
+    console.info('1.network Swarm pop peer: local : ' + this.local.length + ' : remote : ' + this.remote.length)
     if (preferRemote) return this.remote.pop()
     return this.local.pop() || this.remote.pop()
   }
