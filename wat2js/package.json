@@ -1,0 +1,30 @@
+{
+  "name": "wat2js",
+  "version": "2.1.1",
+  "description": "Compile WebAssembly .wat files to a common js module",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mafintosh/wat2js.git"
+  },
+  "bin": {
+    "wat2js": "./index.js"
+  },
+  "keywords": [
+    "WebAssembly",
+    "wast",
+    "wat",
+    "wasm"
+  ],
+  "author": "Mathias Buus (@mafintosh)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mafintosh/wat2js/issues"
+  },
+  "homepage": "https://github.com/mafintosh/wat2js",
+  "dependencies": {
+    "minimist": "file:../minimist",
+    "wasm2js": "file:../wasm2js"
+  }
+}
