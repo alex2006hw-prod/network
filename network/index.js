@@ -62,7 +62,10 @@ class Swarm extends EventEmitter {
     const timeout = setTimeout(ontimeout, 10000)
     const tcp = net.connect(peer.port, peer.host)
 
-    console.info('1.network Swarm connect: ', peer.referrer.id.toString('hex'))
+    console.info('1.network Swarm connect: ',
+      // peer,
+      peer.referrer? peer.referrer.id.toString('hex') : {host: peer.host, port: peer.port},
+    )
 
     tcp.on('connect', onconnect)
     tcp.on('error', onerror)
@@ -122,7 +125,10 @@ class Swarm extends EventEmitter {
     this.emit('peer', peer)
     this.queue.push(peer)
     this._connectNext() // TODO: don't be this eager
-    console.info('1.network Swarm _onpeer : ',peer.referrer.id.toString('hex'))
+    console.info('1.network Swarm _onpeer : ',
+      // peer,
+      peer.referrer? peer.referrer.id.toString('hex') : {host: peer.host, port: peer.port},
+    )
   }
 
   _connectNext () {
@@ -134,7 +140,10 @@ class Swarm extends EventEmitter {
       self.emit('connection', socket, info)
       self._connectNext() // TODO: don't be this eager
     })
-    console.info('1.network Swarm _connectNext : ',peer.referrer.id.toString('hex'))
+    console.info('1.network Swarm _connectNext : ',
+      // peer,
+      peer.referrer? peer.referrer.id.toString('hex') : {host: peer.host, port: peer.port},
+    )
   }
 }
 
@@ -155,7 +164,10 @@ class Queue {
     this.seen.set(id, peer)
     if (peer.local) this.local.push(peer)
     else this.remote.push(peer)
-    console.info('1.network Swarm push peer: ', peer.referrer.id.toString('hex'))
+    console.info('1.network Swarm push peer: ',
+      // peer,
+      peer.referrer? peer.referrer.id.toString('hex') : {host: peer.host, port: peer.port},
+    )
   }
 
   pop (preferRemote) {
